@@ -1,96 +1,76 @@
-//Project 1 - A Random Quote Generator, By: Jaskiran Chhokar. Aiming for "Exceeds Expectations" as my final score.
+/******************************************
+Treehouse FSJS Techdegree:
+project 1 - A Random Quote Generator
+******************************************/
 
-//declare quotes 
+// For assistance: 
+  // Check the "Project Resources" section of the project instructions
+  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+
+
 let quotes = [
   {
     'quote': 'An investment in knowledge pays the best interest.',
-    'source': 'Benjamin Franklin', 
-    'tags': 'business'
+    'source': 'Benjamin Franklin',
+    'citation': 'xxx',
+    'year': 2067
   },
   {
     'quote': 'All that we see or seem is but a dream within a dream.',
-    'source': 'Edgar Allan Poe'
+    'source': 'Edgar Allan Poe',
+    'citation': 'xxx',
+    'year': 2067
   },
   {
     'quote': 'The supreme art of war is to subdue the enemy without fighting.',
-    'source': 'Sun Tzu', 
-    'tags': 'history'
+    'source': 'Sun Tzu',
+    'citation': 'xxx',
+    'year': 2067
   },
   {
     'quote': 'The journey of a thousand miles begins with one step.',
-    'source': 'Lao Tzu', 
-    'tags': 'philosophy'
+    'source': 'Lao Tzu',
+    'citation': 'xxx',
+    'year': 2067
   },
   {
-    'quote': 'It does not do to dwell on dreams and forget to live',
-    'source': 'JK Rowling',
-    'citation': 'Sorcerer’s Stone',
-    'year': 2001
-  },
-  {
-    'quote': 'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends',
-    'source': 'JK Rowling',
-    'citation': 'Sorcerer’s Stone',
-    'year': 2001
-  }, 
-  {
-    'quote': 'If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals',
-    'source': 'JK Rowling',
-    'citation': 'Goblet of Fire',
-    'year': 2005
-  } 
+    'quote': 'If you cannot do great things, do small things in a great way.',
+    'source': 'Napoleon Hill',
+    'citation': 'xxx',
+    'year': 2067
+  }
 ]; 
 
-// dynamically retrieve a random quote 
+console.log(quotes); 
+
+// get random quote function 
 function getRandomQuote() {
-  let randomNumber = Math.floor(Math.random() * quotes.length); 
+  let randomNumber = Math.floor(Math.random() * 4 + 1); 
   return quotes[randomNumber];
 }
 
-//generate random number from 0 to 255
-function getRandomRgbValue() {
-  let randomrgb = Math.floor(Math.random() * 255); 
-  return randomrgb;
-}
+console.log(getRandomQuote());
 
-//create rgb value 
-function getRgb() {
-  let rgb = `rgb(${getRandomRgbValue()}, ${getRandomRgbValue()}, ${getRandomRgbValue()})`; 
-  return rgb; 
-}
-
-// print random quote to page 
+// print quote function 
 function printQuote() {
   let randomquote = getRandomQuote(); 
-  let quoteString = `<p class="quote"> + ${randomquote.quote} </p> <p class="source"> +  ${randomquote.source}`; 
-                    
-  if (randomquote.citation) {
-    quoteString += `<span class="citation"> ${randomquote.citation} </span>`;
-  }
-
-  if (randomquote.year) {
-    quoteString += `<span class="year"> ${randomquote.year} </span>`; 
-  }
-
-  if(randomquote.tags) {
-    quoteString += `<span class="tags"> ${randomquote.tags} </span>`; 
-  }
-
-  quoteString += `</p>`; 
-
-  document.getElementById('quote-box').innerHTML = quoteString; 
-
-  //change background color of page
-  document.querySelector('body').style.backgroundColor = `${getRgb()}`;
+  let quoteString = '<p class="quote">' + randomquote.quote + '</p>' + 
+                      '<p class="source">' +  randomquote.source + 
+                      '<span class="citation">' +  randomquote.citation +  '</span>' + 
+                      '<span class="year">' + randomquote.year + '</span>' + 
+                    '</p>'
 
   return quoteString; 
 }
 
-//print quote to page by default
-printQuote();
+console.log(printQuote());
 
-//set timer to automatically change quote
-setInterval(function(){ printQuote(); }, 5000);
 
-//load quote onto page
+
+
+/***
+ * click event listener for the print quote button
+ * DO NOT CHANGE THE OF CODE BELOW!!
+***/
+
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
