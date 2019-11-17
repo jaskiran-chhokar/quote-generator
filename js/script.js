@@ -47,7 +47,7 @@ function getRandomQuote() {
   return quotes[randomNumber];
 }
 
-//generate random number from 0 to 255
+//generate random rgb number from 0 to 255
 function getRandomRgbValue() {
   let randomrgb = Math.floor(Math.random() * 255); 
   return randomrgb;
