@@ -42,39 +42,27 @@ let quotes = [
 ]; 
 
 // dynamically retrieve a random quote 
-function getRandomQuote() {
+getRandomQuote = () => {
   let randomNumber = Math.floor(Math.random() * quotes.length); 
   return quotes[randomNumber];
 }
 
 //generate random rgb number from 0 to 255
-function getRandomRgbValue() {
-  let randomrgb = Math.floor(Math.random() * 255); 
-  return randomrgb;
-}
+getRandomRgbValue = () => Math.floor(Math.random() * 255); 
 
 //create rgb value 
-function getRgb() {
-  let rgb = `rgb(${getRandomRgbValue()}, ${getRandomRgbValue()}, ${getRandomRgbValue()})`; 
-  return rgb; 
-}
+getRgb = () => `rgb(${getRandomRgbValue()}, ${getRandomRgbValue()}, ${getRandomRgbValue()})`; 
 
 // print random quote to page 
-function printQuote() {
+printQuote = () => {
   let randomquote = getRandomQuote(); 
   let quoteString = `<p class="quote"> + ${randomquote.quote} </p> <p class="source"> +  ${randomquote.source}`; 
                     
-  if (randomquote.citation) {
-    quoteString += `<span class="citation"> ${randomquote.citation} </span>`;
-  }
+  if (randomquote.citation) { quoteString += `<span class="citation"> ${randomquote.citation} </span>`; }
 
-  if (randomquote.year) {
-    quoteString += `<span class="year"> ${randomquote.year} </span>`; 
-  }
+  if (randomquote.year) { quoteString += `<span class="year"> ${randomquote.year} </span>`; } 
 
-  if(randomquote.tags) {
-    quoteString += `<span class="tags"> ${randomquote.tags} </span>`; 
-  }
+  if(randomquote.tags) {  quoteString += `<span class="tags"> ${randomquote.tags} </span>`; }
 
   quoteString += `</p>`; 
 
@@ -93,4 +81,4 @@ printQuote();
 setInterval(function(){ printQuote(); }, 5000);
 
 //load quote onto page
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false); 
