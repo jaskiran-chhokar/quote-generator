@@ -1,5 +1,3 @@
-//Project 1 - A Random Quote Generator, By: Jaskiran Chhokar. Aiming for "Exceeds Expectations" as my final score.
-
 //declare quotes 
 let quotes = [
   {
